@@ -18,6 +18,7 @@ You can clone this repo and then install all of the dependencies by typing ⁠`n
 
 and then u can type ⁠`node index.js` ⁠in your terminal to run the code and then open localhost:3000 in your browser
 
+Note: Please be sure to install mongoDB on your machine, the installation tutorial can be found in <a href="https://www.mongodb.com/docs/manual/installation/">here</a>
 
 ## Register and Login 
 
