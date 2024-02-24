@@ -1,0 +1,35 @@
+
+<% layout('layout/boilerplate') %>
+
+<div class="row">
+    <h1 class="text-center">New Event</h1>
+    <div class="col-6 offset-3">
+        <form action="/events" method="POST" novalidate class="validate-form" id="foodPlaceForm">
+            <div class="mb-3">
+                <label class="form-label" for="title">Title: </label>
+                <input class="form-control" type="text" id="title" name="events[title]" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="location">Location: </label>
+                <input class="form-control" type="text" id="location" name="events[location]" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="date">date: </label>
+                <input class="form-control" type="text" id="date" name="events[date]" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="price">Entry Fee: </label>
+                <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="text" class="form-control" id="price" placeholder="0.00" name="events[price]" required>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">Description: </label>
+                <textarea class="form-control" type="text" id="description" name="events[description]" required></textarea>
+            </div>
+            <button class="btn btn-success">Add Place</button>
+        </form>
+        <a href="/events">back to all places</a>    
+    </div>
+</div>

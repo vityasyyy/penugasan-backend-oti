@@ -1,0 +1,54 @@
+<% layout('layout/boilerplate')%>
+
+<div class="row">
+    <div class="col-6">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><%= event.title%></h5>
+                <p class="card-text"><%= event.description%></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-muted">Location: <%= event.location%></li>
+                <li class="list-group-item">Event by: <%= event.author.username%></li>
+                <li class="list-group-item">$<%= event.price%></li>
+                <li class="list-group-item text-muted">Date: <%= event.date %></li>
+            </ul>
+            <% if(signedInUser && event.author.equals(signedInUser._id)) { %>
+                <div class="card-body">
+                    <a class="card-link btn btn-info" href="/events/<%=event._id%>/edit">Edit</a>
+                    <form class="d-inline" action="/events/<%=event._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            <% } %>
+            <div class="card-footer text-muted">
+            <a href="/events/">back to all</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <% if(signedInUser && !event.author.equals(signedInUser._id)) { %>
+            <h2>Leave a regist</h2>
+            <form action="/events/<%= event._id %>/regist" method="POST" class="validate-form" novalidate>
+                <div class="mb-3">
+                    <label hclass="form-label" for="body">Type "join" to register</label>
+                    <input type="text" class="form-control" name="regist[body]" required></input type="text">
+                </div>
+                <button class="btn btn-success mb-3">Join Event</button>
+            </form>
+        <% } %>
+        <% for(let regist of event.regists){ %>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2">Username: <%= regist.author.username %></h6>
+                    <p class="card-subtitle mb-2 text-muted">Email: <%= regist.author.email %></p>
+                    <% if(signedInUser && regist.author.equals(signedInUser._id)) { %>
+                        <form action="/events/<%= event._id %>/regist/<%= regist._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-sm btn-danger">Cancel registration</button>
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
