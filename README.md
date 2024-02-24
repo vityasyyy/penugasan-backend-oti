@@ -9,7 +9,7 @@ System ini mengimplementasikan CRUD, Database MongoDB, dan Authentication menggu
 
 ## Tools that are used
 
-Used <a href="https://www.npmjs.com/package/passport">passport</a> for the password security, <a href="https://www.npmjs.com/package/connect-flash">flash</a> to flash the error or the success message, <a href="https://www.npmjs.com/package/express-session">session</a> to know if the user is still logged in or not, <a href="https://www.npmjs.com/package/ejs">ejs</a> for the templating, and <a href="https://www.npmjs.com/package/joi">joi</a> for the form validation
+Used <a href="https://www.npmjs.com/package/passport">passport</a> for the password security, <a href="https://www.npmjs.com/package/connect-flash">flash</a> to flash the error or the success message, <a href="https://www.npmjs.com/package/express-session">session</a> to know if the user is still logged in or not, <a href="https://www.npmjs.com/package/ejs">ejs</a> for the templating, <a href="https://getbootstrap.com">bootsrap</a> to make the website look pretty and <a href="https://www.npmjs.com/package/joi">joi</a> for the form validation
 
 
 ## How to Install and Run?
